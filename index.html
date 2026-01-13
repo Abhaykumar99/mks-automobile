@@ -11,1796 +11,1825 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 
-        /* Premium Automotive Color Scheme - Unique MKS Theme */
-        :root {
-            --primary-orange: #FF6B35;
-            --primary-dark: #0a0f1a;
-            --secondary-dark: #141c2e;
-            --copper-accent: #D4A574;
-            --electric-blue: #00D4FF;
-            --light-bg: #f0f4f8;
-            --accent-light: #f8fafc;
-            --gold-accent: #FFB347;
-            --text-dark: #0f172a;
-            --text-light: #64748b;
-            --border-light: #e2e8f0;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFB347 100%);
-            --gradient-dark: linear-gradient(135deg, #0a0f1a 0%, #141c2e 100%);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.2);
-            --shadow-glow: 0 0 30px rgba(255, 107, 53, 0.3);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-            background: var(--white);
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 70px;
-        }
-
-        /* Navigation Bar - Premium Dark */
-        .navbar {
-            background: var(--gradient-dark);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--gold-accent) !important;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-link {
-            color: rgba(255, 255, 255, 0.85) !important;
-            font-weight: 500;
-            margin: 0 0.7rem;
-            transition: all 0.3s ease;
-            position: relative;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-link:hover {
-            color: var(--gold-accent) !important;
-        }
-
-        .navbar-toggler {
-            border-color: var(--gold-accent) !important;
-            padding: 0.4rem 0.6rem;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: none;
-            outline: none;
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FF6B35' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        /* Mobile Menu Popup */
-        @media (max-width: 991px) {
-            .navbar-collapse {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: var(--primary-dark);
-                border-bottom: 3px solid var(--primary-orange);
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-                padding: 1.5rem 0;
-                border-radius: 0 0 15px 15px;
-                margin-top: 0;
-                z-index: 999;
-                max-height: calc(100vh - 70px);
-                overflow-y: auto;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-30px);
-            }
-
-            .navbar-collapse.show {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            .navbar-nav {
-                flex-direction: column;
-            }
-
-            .nav-item {
-                padding: 0;
-            }
-
-            .nav-link {
-                padding: 1rem 1.8rem !important;
-                margin: 0 !important;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                color: rgba(255, 255, 255, 0.9) !important;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                display: block;
-                position: relative;
-            }
-
-            .nav-link::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 4px;
-                background: var(--primary-orange);
-                transform: scaleY(0);
-                transform-origin: top;
-                transition: transform 0.3s ease;
-            }
-
-            .nav-link:hover {
-                background: rgba(255, 107, 53, 0.15);
-                padding-left: 2.2rem !important;
-                color: var(--primary-orange) !important;
-            }
-
-            .nav-link:hover::before {
-                transform: scaleY(1);
-            }
-
-            .nav-link::after {
-                display: none !important;
-            }
-
-            .navbar-nav .nav-link:last-child {
-                border-bottom: none;
-            }
-
-            .navbar-toggler {
-                transition: all 0.3s ease;
-            }
-
-            .navbar-toggler:not(.collapsed) {
-                border-color: var(--primary-orange) !important;
-            }
-        }
-
-        /* Hero Section - Premium Gradient */
-        .hero {
-            background: var(--gradient-dark);
-            color: var(--white);
-            padding: 50px 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="%23FF6B35" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            opacity: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: none;
-        }
-
-        .hero p {
-            font-size: 1.35rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary-custom {
-            background: var(--gradient-primary);
-            color: var(--white);
-            border: none;
-            padding: 14px 35px;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-primary-custom:hover {
-            background: linear-gradient(135deg, #FF8C42 0%, #FFB347 100%);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
-            color: var(--white);
-        }
-
-        .btn-secondary-custom {
-            background: transparent;
-            color: var(--gold-accent);
-            border: 2px solid var(--gold-accent);
-            padding: 12px 33px;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-secondary-custom:hover {
-            background: var(--gold-accent);
-            color: var(--primary-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(255, 179, 71, 0.4);
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styling */
-        .section {
-            padding: 50px 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1.2rem;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-dark);
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--gradient-primary);
-            margin: 0.5rem auto 0;
-            border-radius: 3px;
-        }
-
-        /* Services Section */
-        .services-bg {
-            background: linear-gradient(135deg, #fafbfc 0%, #f0f4f8 100%);
-            background-attachment: fixed;
-            position: relative;
-        }
-
-        .services-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .services-bg::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 179, 71, 0.03) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: none;
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            color: var(--primary-orange);
-            margin-bottom: 1.5rem;
-            transition: all 0.4s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.25);
-            color: var(--gold-accent);
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.8rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose-bg {
-            background: var(--white);
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            padding: 1rem 0;
-            padding-left: 3.5rem;
-            position: relative;
-            font-size: 1.15rem;
-            color: var(--text-dark);
-            border-bottom: 1px solid #e9ecef;
-            transition: all 0.3s ease;
-        }
-
-        .feature-list li:hover {
-            padding-left: 3.8rem;
-            color: var(--primary-orange);
-        }
-
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-
-        .feature-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            color: var(--white);
-            font-size: 12px;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-        }
-
-        .why-choose-image {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Gallery Section */
-        .gallery-bg {
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            aspect-ratio: 1;
-            cursor: pointer;
-            animation: fadeInUp 0.6s ease-out;
-            group: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.15) rotate(2deg);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(255, 140, 66, 0.85));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-icon {
-            font-size: 2.5rem;
-            color: var(--white);
-        }
-
-        /* Reviews Section */
-        .reviews-bg {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="40" y2="40" stroke="%23e2e8f0" stroke-width="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23lines)"/></svg>');
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 2.2rem;
-            border-radius: 12px;
-            border: none;
-            border-left: 5px solid var(--primary-orange);
-            transition: all 0.4s ease;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-        }
-
-        /* Equal height cards fix */
-        .review-card,
-        .contact-card {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .reviewer-name,
-        .reviewer-title {
-            margin-top: auto;
-        }
-
-        .review-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .review-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 3rem;
-            color: var(--primary-orange);
-            opacity: 0.1;
-        }
-
-        .stars {
-            color: #ffc107;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .reviewer-name {
-            font-weight: 700;
-            color: var(--text-dark);
-            font-size: 1.15rem;
-        }
-
-        .reviewer-title {
-            color: var(--primary-orange);
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* Booking Form Section */
-        .booking-bg {
-            background: var(--gradient-dark);
-        }
-
-        .form-container {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-lg);
-            max-width: 650px;
-            margin: 0 auto;
-            border-top: 5px solid var(--primary-orange);
-        }
-
-        .form-container h3 {
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            font-weight: 800;
-            font-size: 2rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-control {
-            border: 2px solid var(--border-light);
-            border-radius: 8px;
-            padding: 0.85rem 1.2rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-orange);
-            box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.15);
-            outline: none;
-        }
-
-        .form-label {
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.7rem;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-book {
-            background: var(--gradient-primary);
-            color: var(--white);
-            border: none;
-            padding: 14px 40px;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-book:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
-            background: linear-gradient(135deg, #FF8C42 0%, #FFB347 100%);
-        }
-
-        /* Contact Section */
-        .contact-bg {
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
-        }
-
-        .contact-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--primary-orange);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-orange);
-        }
-
-        .contact-card:hover::before {
-            opacity: 0.03;
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            color: var(--primary-orange);
-            margin-bottom: 1.2rem;
-            transition: all 0.4s ease;
-        }
-
-        .contact-card:hover .contact-icon {
-            color: var(--gold-accent);
-            transform: scale(1.2) rotateZ(-5deg);
-        }
-
-        .contact-card h3 {
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-card p {
-            color: var(--text-light);
-            font-size: 1.15rem;
-            line-height: 1.8;
-        }
-
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            margin-top: 2rem;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gradient-dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-            text-align: center;
-            border-top: 5px solid var(--primary-orange);
-        }
-
-        .footer-content {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-content h5 {
-            font-weight: 800;
-            color: var(--gold-accent);
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-content p {
-            margin: 0.4rem 0;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .footer-links a {
-            color: var(--gold-accent);
-            text-decoration: none;
-            margin: 0 0.7rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-red);
-            transform: translateY(-2px);
-        }
-
-        /* Floating WhatsApp Button */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.2) rotate(10deg);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-            color: var(--white);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 70px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                letter-spacing: 1px;
-                margin-bottom: 0.8rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-                margin-bottom: 2rem;
-            }
-
-            .hero-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-primary-custom,
-            .btn-secondary-custom {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-                width: 100%;
-                margin: 0;
-                border-radius: 8px;
-            }
-
-            .section {
-                padding: 50px 0;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-            }
-
-            .navbar-brand {
-                font-size: 1rem;
-                letter-spacing: 0.5px;
-            }
-
-            .nav-link {
-                font-size: 0.9rem;
-                margin: 0 0.3rem;
-                padding: 0.5rem 0;
-            }
-
-            .service-card {
-                padding: 1.8rem 1.2rem;
-            }
-
-            .service-icon {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .service-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .service-card p {
-                font-size: 0.85rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 1.2rem;
-            }
-
-            .gallery-item {
-                aspect-ratio: 1;
-            }
-
-            .whatsapp-btn {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-
-            .form-container {
-                padding: 1.8rem;
-            }
-
-            .form-container h3 {
-                font-size: 1.6rem;
-            }
-
-            .map-container iframe {
-                height: 350px;
-            }
-
-            .contact-card {
-                padding: 1.8rem;
-            }
-
-            .contact-icon {
-                font-size: 2.5rem;
-            }
-
-            .contact-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .contact-card p {
-                font-size: 0.95rem;
-            }
-
-            .feature-list li {
-                padding: 0.9rem 0;
-                padding-left: 2.8rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 0.8rem 0;
-            }
-
-            .navbar-brand {
-                font-size: 0.95rem;
-                letter-spacing: 0.3px;
-            }
-
-            .nav-link {
-                font-size: 0.85rem;
-                margin: 0 0.2rem;
-            }
-
-            .hero {
-                padding: 50px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-                letter-spacing: 0.5px;
-                margin-bottom: 0.6rem;
-                line-height: 1.3;
-            }
-
-            .hero p {
-                font-size: 0.85rem;
-                margin-bottom: 1.5rem;
-                line-height: 1.5;
-            }
-
-            .btn-primary-custom,
-            .btn-secondary-custom {
-                padding: 11px 20px;
-                font-size: 0.8rem;
-                margin: 0.3rem 0;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .section-title::after {
-                width: 60px;
-                height: 4px;
-                margin: 0.8rem auto 0;
-            }
-
-            .service-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .service-icon {
-                font-size: 2.2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .service-card h3 {
-                font-size: 1rem;
-                margin-bottom: 0.7rem;
-            }
-
-            .service-card p {
-                font-size: 0.8rem;
-                line-height: 1.5;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-
-            .review-card {
-                padding: 1.5rem;
-            }
-
-            .reviewer-name {
-                font-size: 0.95rem;
-            }
-
-            .review-text {
-                font-size: 0.85rem;
-            }
-
-            .stars {
-                font-size: 0.9rem;
-                margin-bottom: 0.7rem;
-            }
-
-            .whatsapp-btn {
-                bottom: 1rem;
-                right: 1rem;
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-
-            .form-container {
-                padding: 1.5rem;
-                border-radius: 10px;
-            }
-
-            .form-container h3 {
-                font-size: 1.4rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .form-group {
-                margin-bottom: 1.2rem;
-            }
-
-            .form-label {
-                font-size: 0.85rem;
-                margin-bottom: 0.4rem;
-            }
-
-            .form-control {
-                padding: 0.75rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            .btn-book {
-                padding: 11px 30px;
-                font-size: 0.85rem;
-                margin-top: 0.5rem;
-            }
-
-            .map-container iframe {
-                height: 280px;
-            }
-
-            .contact-card {
-                padding: 1.5rem;
-            }
-
-            .contact-icon {
-                font-size: 2.2rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .contact-card h3 {
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .contact-card p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            .footer-content h5 {
-                font-size: 1.2rem;
-            }
-
-            .footer-content p {
-                font-size: 0.85rem;
-            }
-
-            .feature-list li {
-                padding: 0.8rem 0;
-                padding-left: 2.5rem;
-                font-size: 0.9rem;
-            }
-
-            .feature-list li::before {
-                width: 20px;
-                height: 20px;
-                font-size: 10px;
-            }
-
-            .why-choose-image {
-                margin-bottom: 2rem;
-                border-radius: 8px;
-            }
-        }
-
-        /* Smooth Fade In for sections */
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-    </style>
-
-    </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#home">
-                <i class="fas fa-motorcycle"></i> MKS Automobile
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#why-us">Why Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#booking">Book Service</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    --copper-accent: #D4A574;
+    --electric-blue: #00D4FF;
+    --light-bg: #f0f4f8;
+    --accent-light: #f8fafc;
+    --gold-accent: #FFB347;
+    --text-dark: #0f172a;
+    --text-light: #64748b;
+    --border-light: #e2e8f0;
+    --white: #ffffff;
+    --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFB347 100%);
+    --gradient-dark: linear-gradient(135deg, #0a0f1a 0%, #141c2e 100%);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 30px rgba(255, 107, 53, 0.3);
+    }
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <p style="font-size: 1.1rem; color: var(--gold-accent); margin-bottom: 0.5rem; letter-spacing: 2px;">
-                    MOTO KINETIC SOLUTION AUTOMOBILE</p>
-                <h1>MKS AUTOMOBILE</h1>
-                <p style="font-size: 0.95rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Trusted Two-Wheeler
-                    Spare Parts Since 2021</p>
-                <p style="font-size: 1.3rem; margin-bottom: 0.5rem;">Quality Bike Spare Parts You Can Trust</p>
-                <p style="font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem;">Since 2021, MKS
-                    Automobile has been delivering reliable and affordable two-wheeler spare parts for everyday riders.
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+    background: var(--white);
+    }
+
+    /* Smooth Scrolling */
+    html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+    }
+
+    /* Navigation Bar - Premium Dark */
+    .navbar {
+    background: var(--gradient-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    }
+
+    .navbar-brand {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--gold-accent) !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin: 0 0.7rem;
+    transition: all 0.3s ease;
+    position: relative;
+    letter-spacing: 0.5px;
+    }
+
+    .nav-link:hover {
+    color: var(--gold-accent) !important;
+    }
+
+    .navbar-toggler {
+    border-color: var(--gold-accent) !important;
+    padding: 0.4rem 0.6rem;
+    }
+
+    .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+    }
+
+    .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath
+    stroke='%23FF6B35' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4
+    23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Mobile Menu Popup */
+    @media (max-width: 991px) {
+    .navbar-collapse {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--primary-dark);
+    border-bottom: 3px solid var(--primary-orange);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem 0;
+    border-radius: 0 0 15px 15px;
+    margin-top: 0;
+    z-index: 999;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-30px);
+    }
+
+    .navbar-collapse.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    }
+
+    .navbar-nav {
+    flex-direction: column;
+    }
+
+    .nav-item {
+    padding: 0;
+    }
+
+    .nav-link {
+    padding: 1rem 1.8rem !important;
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    }
+
+    .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary-orange);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover {
+    background: rgba(255, 107, 53, 0.15);
+    padding-left: 2.2rem !important;
+    color: var(--primary-orange) !important;
+    }
+
+    .nav-link:hover::before {
+    transform: scaleY(1);
+    }
+
+    .nav-link::after {
+    display: none !important;
+    }
+
+    .navbar-nav .nav-link:last-child {
+    border-bottom: none;
+    }
+
+    .navbar-toggler {
+    transition: all 0.3s ease;
+    }
+
+    .navbar-toggler:not(.collapsed) {
+    border-color: var(--primary-orange) !important;
+    }
+    }
+
+    /* Hero Section - Premium Gradient */
+    .hero {
+    background: var(--gradient-dark);
+    color: var(--white);
+    padding: 50px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+        <defs>
+            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="%23FF6B35" stroke-width="0.5" opacity="0.1" />
+            </pattern>
+        </defs>
+        <rect width="1200" height="600" fill="url(%23grid)" />
+    </svg>');
+    opacity: 1;
+    }
+
+    .hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    }
+
+    .hero p {
+    font-size: 1.35rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    }
+
+    .btn-primary-custom {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border: none;
+    padding: 14px 35px;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    .btn-primary-custom:hover {
+    background: linear-gradient(135deg, #FF8C42 0%, #FFB347 100%);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+    color: var(--white);
+    }
+
+    .btn-secondary-custom {
+    background: transparent;
+    color: var(--gold-accent);
+    border: 2px solid var(--gold-accent);
+    padding: 12px 33px;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    }
+
+    .btn-secondary-custom:hover {
+    background: var(--gold-accent);
+    color: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(255, 179, 71, 0.4);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+    from {
+    opacity: 0;
+    transform: translateY(-40px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+
+    @keyframes fadeInUp {
+    from {
+    opacity: 0;
+    transform: translateY(40px);
+    }
+
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    }
+
+    /* Section Styling */
+    .section {
+    padding: 50px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+
+    .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-dark);
+    }
+
+    .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 0.5rem auto 0;
+    border-radius: 3px;
+    }
+
+    /* Services Section */
+    .services-bg {
+    background: linear-gradient(135deg, #fafbfc 0%, #f0f4f8 100%);
+    background-attachment: fixed;
+    position: relative;
+    }
+
+    .services-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    }
+
+    .services-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    }
+
+    .service-card {
+    background: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    }
+
+    .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    }
+
+    .service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover::before {
+    transform: scaleX(1);
+    }
+
+    .service-icon {
+    font-size: 3.5rem;
+    color: var(--primary-orange);
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+    }
+
+    .service-card:hover .service-icon {
+    transform: scale(1.25);
+    color: var(--gold-accent);
+    }
+
+    .service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose-bg {
+    background: var(--white);
+    }
+
+    .feature-list {
+    list-style: none;
+    }
+
+    .feature-list li {
+    padding: 1rem 0;
+    padding-left: 3.5rem;
+    position: relative;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    border-bottom: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    }
+
+    .feature-list li:hover {
+    padding-left: 3.8rem;
+    color: var(--primary-orange);
+    }
+
+    .feature-list li:last-child {
+    border-bottom: none;
+    }
+
+    .feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: var(--white);
+    font-size: 12px;
+    }
+
+    .feature-list li::before {
+    content: '✓';
+    }
+
+    .why-choose-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    }
+
+    /* Gallery Section */
+    .gallery-bg {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+            <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23e2e8f0" stroke-width="0.5" />
+            </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(%23grid)" />
+    </svg>');
+    }
+
+    .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+    }
+
+    .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 1;
+    cursor: pointer;
+    animation: fadeInUp 0.6s ease-out;
+    group: 1;
+    }
+
+    .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-item:hover img {
+    transform: scale(1.15) rotate(2deg);
+    }
+
+    .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.9), rgba(255, 140, 66, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    }
+
+    .gallery-icon {
+    font-size: 2.5rem;
+    color: var(--white);
+    }
+
+    /* Reviews Section */
+    .reviews-bg {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+            <pattern id="lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="40" y2="40" stroke="%23e2e8f0" stroke-width="0.3" />
+            </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(%23lines)" />
+    </svg>');
+    }
+
+    .review-card {
+    background: var(--white);
+    padding: 2.2rem;
+    border-radius: 12px;
+    border: none;
+    border-left: 5px solid var(--primary-orange);
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    }
+
+    /* Equal height cards fix */
+    .review-card,
+    .contact-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .reviewer-name,
+    .reviewer-title {
+    margin-top: auto;
+    }
+
+    .review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-md);
+    }
+
+    .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    color: var(--primary-orange);
+    opacity: 0.1;
+    }
+
+    .stars {
+    color: #ffc107;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    }
+
+    .review-text {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    }
+
+    .reviewer-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.15rem;
+    }
+
+    .reviewer-title {
+    color: var(--primary-orange);
+    font-size: 0.95rem;
+    font-weight: 600;
+    }
+
+    /* Booking Form Section */
+    .booking-bg {
+    background: var(--gradient-dark);
+    }
+
+    .form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    max-width: 650px;
+    margin: 0 auto;
+    border-top: 5px solid var(--primary-orange);
+    }
+
+    .form-container h3 {
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    font-weight: 800;
+    font-size: 2rem;
+    text-align: center;
+    }
+
+    .form-group {
+    margin-bottom: 1.8rem;
+    }
+
+    .form-control {
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0.85rem 1.2rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    }
+
+    .form-control:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.15);
+    outline: none;
+    }
+
+    .form-label {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    }
+
+    .btn-book {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border: none;
+    padding: 14px 40px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    .btn-book:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+    background: linear-gradient(135deg, #FF8C42 0%, #FFB347 100%);
+    }
+
+    /* Contact Section */
+    .contact-bg {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+    }
+
+    .contact-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-orange);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    }
+
+    .contact-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-orange);
+    }
+
+    .contact-card:hover::before {
+    opacity: 0.03;
+    }
+
+    .contact-icon {
+    font-size: 3rem;
+    color: var(--primary-orange);
+    margin-bottom: 1.2rem;
+    transition: all 0.4s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+    color: var(--gold-accent);
+    transform: scale(1.2) rotateZ(-5deg);
+    }
+
+    .contact-card h3 {
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    }
+
+    .contact-card p {
+    color: var(--text-light);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    }
+
+    .map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-top: 2rem;
+    }
+
+    .map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    }
+
+    /* Footer */
+    footer {
+    background: var(--gradient-dark);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+    text-align: center;
+    border-top: 5px solid var(--primary-orange);
+    }
+
+    .footer-content {
+    margin-bottom: 1.5rem;
+    }
+
+    .footer-content h5 {
+    font-weight: 800;
+    color: var(--gold-accent);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    }
+
+    .footer-content p {
+    margin: 0.4rem 0;
+    color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-links a {
+    color: var(--gold-accent);
+    text-decoration: none;
+    margin: 0 0.7rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    }
+
+    .footer-links a:hover {
+    color: var(--primary-red);
+    transform: translateY(-2px);
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+    }
+
+    .whatsapp-btn:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+    color: var(--white);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    .hero {
+    padding: 70px 0 80px;
+    }
+
+    .hero h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    .btn-primary-custom,
+    .btn-secondary-custom {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    width: 100%;
+    margin: 0;
+    border-radius: 8px;
+    }
+
+    .section {
+    padding: 50px 0;
+    }
+
+    .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    }
+
+    .navbar-brand {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    }
+
+    .nav-link {
+    font-size: 0.9rem;
+    margin: 0 0.3rem;
+    padding: 0.5rem 0;
+    }
+
+    .service-card {
+    padding: 1.8rem 1.2rem;
+    }
+
+    .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+    font-size: 1.1rem;
+    }
+
+    .service-card p {
+    font-size: 0.85rem;
+    }
+
+    .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.2rem;
+    }
+
+    .gallery-item {
+    aspect-ratio: 1;
+    }
+
+    .whatsapp-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    }
+
+    .form-container {
+    padding: 1.8rem;
+    }
+
+    .form-container h3 {
+    font-size: 1.6rem;
+    }
+
+    .map-container iframe {
+    height: 350px;
+    }
+
+    .contact-card {
+    padding: 1.8rem;
+    }
+
+    .contact-icon {
+    font-size: 2.5rem;
+    }
+
+    .contact-card h3 {
+    font-size: 1.1rem;
+    }
+
+    .contact-card p {
+    font-size: 0.95rem;
+    }
+
+    .feature-list li {
+    padding: 0.9rem 0;
+    padding-left: 2.8rem;
+    font-size: 0.95rem;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .navbar {
+    padding: 0.8rem 0;
+    }
+
+    .navbar-brand {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    }
+
+    .nav-link {
+    font-size: 0.85rem;
+    margin: 0 0.2rem;
+    }
+
+    .hero {
+    padding: 50px 0 60px;
+    }
+
+    .hero h1 {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    }
+
+    .hero p {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    }
+
+    .btn-primary-custom,
+    .btn-secondary-custom {
+    padding: 11px 20px;
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+    }
+
+    .section {
+    padding: 40px 0;
+    }
+
+    .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    }
+
+    .section-title::after {
+    width: 60px;
+    height: 4px;
+    margin: 0.8rem auto 0;
+    }
+
+    .service-card {
+    padding: 1.5rem 1rem;
+    }
+
+    .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    }
+
+    .service-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    }
+
+    .service-card p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    }
+
+    .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    }
+
+    .review-card {
+    padding: 1.5rem;
+    }
+
+    .reviewer-name {
+    font-size: 0.95rem;
+    }
+
+    .review-text {
+    font-size: 0.85rem;
+    }
+
+    .stars {
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+    }
+
+    .whatsapp-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    }
+
+    .form-container {
+    padding: 1.5rem;
+    border-radius: 10px;
+    }
+
+    .form-container h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+    margin-bottom: 1.2rem;
+    }
+
+    .form-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    }
+
+    .form-control {
+    padding: 0.75rem 0.8rem;
+    font-size: 0.9rem;
+    }
+
+    .btn-book {
+    padding: 11px 30px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    }
+
+    .map-container iframe {
+    height: 280px;
+    }
+
+    .contact-card {
+    padding: 1.5rem;
+    }
+
+    .contact-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    }
+
+    .contact-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    }
+
+    .footer-content h5 {
+    font-size: 1.2rem;
+    }
+
+    .footer-content p {
+    font-size: 0.85rem;
+    }
+
+    .feature-list li {
+    padding: 0.8rem 0;
+    padding-left: 2.5rem;
+    font-size: 0.9rem;
+    }
+
+    .feature-list li::before {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    }
+
+    .why-choose-image {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    }
+    }
+
+    /* Smooth Fade In for sections */
+    .fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    }
+    </style>
+
+    </style>
+    </head>
+
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand" href="#home">
+                    <i class="fas fa-motorcycle"></i> MKS Automobile
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#why-us">Why Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#booking">Book Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p
+                        style="font-size: 1.1rem; color: var(--gold-accent); margin-bottom: 0.5rem; letter-spacing: 2px;">
+                        MOTO KINETIC SOLUTION AUTOMOBILE</p>
+                    <h1>MKS AUTOMOBILE</h1>
+                    <p style="font-size: 0.95rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Trusted
+                        Two-Wheeler
+                        Spare Parts Since 2021</p>
+                    <p style="font-size: 1.3rem; margin-bottom: 0.5rem;">Quality Bike Spare Parts You Can Trust</p>
+                    <p style="font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem;">Since 2021, MKS
+                        Automobile has been delivering reliable and affordable two-wheeler spare parts for everyday
+                        riders.
+                    </p>
+                    <p style="font-size: 1rem; color: var(--gold-accent); margin-bottom: 2rem;">👉 Built for Performance
+                        |
+                        Designed for Durability</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn-primary-custom">
+                            <i class="fas fa-cogs"></i> Explore Products
+                        </a>
+                        <a href="#contact" class="btn-secondary-custom">
+                            <i class="fas fa-envelope"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title">About Us</h2>
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
+                            alt="MKS Automobile Store" class="img-fluid"
+                            style="border-radius: 12px; box-shadow: var(--shadow-lg);">
+                    </div>
+                    <div class="col-lg-6">
+                        <p style="font-size: 1.25rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>MKS Automobile</strong> is a growing name in the two-wheeler spare parts market. We
+                            have
+                            been actively engaged in spare parts selling since <strong>2021</strong>, with a strong
+                            focus on
+                            B2C customers.
+                        </p>
+                        <p style="font-size: 1.15rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1rem;">
+                            Our aim is simple — to provide genuine, long-lasting and value-for-money spare parts that
+                            keep
+                            your motorcycle running smoothly.
+                        </p>
+                        <p style="font-size: 1.15rem; color: var(--text-light); line-height: 1.8;">
+                            With hands-on market experience and deep product knowledge, we understand what riders
+                            actually
+                            need.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer Section -->
+        <section id="services" class="section services-bg">
+            <div class="container" style="position: relative; z-index: 1;">
+                <h2 class="section-title">What We Offer</h2>
+                <p style="text-align: center; font-size: 1.05rem; color: var(--text-light); margin-bottom: 1.5rem;">We
+                    deal
+                    in a wide range of Two-Wheeler Spare Parts, including:</p>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Engine & Mechanical Spare Parts</h3>
+                            <p>High-quality engine components and mechanical parts for all two-wheeler brands.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-motorcycle"></i>
+                            </div>
+                            <h3>Body Parts & Accessories</h3>
+                            <p>Premium body panels, fairings, and stylish accessories to enhance your ride.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <h3>Service & Maintenance Components</h3>
+                            <p>Essential maintenance items like filters, brake pads, chains, and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Fast Moving Daily-Use Spares</h3>
+                            <p>Quick availability of commonly needed spare parts for everyday riders.</p>
+                        </div>
+                    </div>
+                </div>
+                <p
+                    style="text-align: center; font-size: 1rem; color: var(--text-dark); margin-top: 2.5rem; font-weight: 500;">
+                    All our products are carefully selected to ensure <strong>perfect fit</strong>,
+                    <strong>durability</strong>, and <strong>performance</strong>.
                 </p>
-                <p style="font-size: 1rem; color: var(--gold-accent); margin-bottom: 2rem;">👉 Built for Performance |
-                    Designed for Durability</p>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="why-us" class="section why-choose-bg">
+            <div class="container">
+                <h2 class="section-title">Why Choose MKS Automobile</h2>
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3>Established Since 2021</h3>
+                            <p>Trusted and reliable spare parts provider with years of market experience.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Strong B2C Experience</h3>
+                            <p>Deep understanding of individual customer needs and preferences.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Quality-Checked Parts</h3>
+                            <p>Every product is carefully inspected to ensure top-notch quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Affordable Pricing</h3>
+                            <p>Competitive rates without compromising on product quality.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Customer Focused</h3>
+                            <p>Your satisfaction is our priority. We go the extra mile for you.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h3>Fast Availability</h3>
+                            <p>Quick access to common bike parts for everyday riders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="section" style="background: var(--primary-dark);">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div
+                            style="background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 12px; border-left: 5px solid var(--primary-orange); height: 100%;">
+                            <h3 style="color: var(--gold-accent); font-size: 1.8rem; margin-bottom: 1.5rem;"><i
+                                    class="fas fa-bullseye"></i> Our Mission</h3>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8;">
+                                To provide reliable and high-quality two-wheeler spare parts that ensure safety,
+                                performance, and peace of mind for every rider.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div
+                            style="background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 12px; border-left: 5px solid var(--gold-accent); height: 100%;">
+                            <h3 style="color: var(--gold-accent); font-size: 1.8rem; margin-bottom: 1.5rem;"><i
+                                    class="fas fa-eye"></i> Our Vision</h3>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8;">
+                                To become a recognized and trusted spare parts brand in the local and regional market,
+                                known
+                                for quality, honesty, and service excellence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Serve Section -->
+        <section class="section" style="background: var(--white);">
+            <div class="container">
+                <h2 class="section-title">Who We Serve</h2>
+                <p style="text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 3rem;">
+                    We believe in building long-term relationships based on trust and product quality.
+                </p>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="service-card fade-in" style="text-align: center;">
+                            <div class="service-icon">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <h3>Individual Bike Owners</h3>
+                            <p>Quality spare parts for your personal two-wheeler needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-card fade-in" style="text-align: center;">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Local Mechanics & Workshops</h3>
+                            <p>Reliable parts supply for your repair and service business.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-card fade-in" style="text-align: center;">
+                            <div class="service-icon">
+                                <i class="fas fa-motorcycle"></i>
+                            </div>
+                            <h3>Daily Commuters & Riders</h3>
+                            <p>Fast-moving spares for everyday riding requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="section reviews-bg">
+            <div class="container">
+                <h2 class="section-title">Customer Reviews</h2>
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="review-card fade-in">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Excellent quality spare parts! MKS Automobile always has genuine
+                                products at reasonable prices. Highly recommended for all bike owners!"</p>
+                            <div class="reviewer-name">Rajesh Kumar</div>
+                            <div class="reviewer-title">Bike Owner</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="review-card fade-in">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Best spare parts shop in the area. The staff is very helpful and
+                                knowledgeable. I trust MKS completely with my bike maintenance needs."</p>
+                            <div class="reviewer-name">Priya Singh</div>
+                            <div class="reviewer-title">Regular Customer</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="review-card fade-in">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Great service and genuine parts. They have everything I need for my
+                                workshop. Quick availability and competitive prices!"</p>
+                            <div class="reviewer-name">Amit Patel</div>
+                            <div class="reviewer-title">Local Mechanic</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-bg">
+            <div class="container">
+                <h2 class="section-title">Our Products Gallery</h2>
+                <div class="gallery-grid">
+                    <!-- Image 1: Motorcycle -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/2393816/pexels-photo-2393816.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Motorcycle">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-motorcycle"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 2: Engine Parts -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Engine Parts">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-cogs"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 3: Bike Wheel -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/3806249/pexels-photo-3806249.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Bike Wheel">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-circle"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 4: Sport Bike -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/2611686/pexels-photo-2611686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Sport Bike">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-tachometer-alt"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 5: Classic Bike -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Classic Bike">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 6: Bike Details -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Bike Details">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-wrench"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 7: Racing Bike -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Racing Bike">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-flag-checkered"></i></span>
+                        </div>
+                    </div>
+                    <!-- Image 8: Premium Bike -->
+                    <div class="gallery-item">
+                        <img src="https://images.pexels.com/photos/1715193/pexels-photo-1715193.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
+                            alt="Premium Bike">
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon"><i class="fas fa-gem"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Service Section -->
+        <section id="booking" class="section booking-bg">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--white);">Book Your Service</h2>
+                <div class="form-container">
+                    <h3>Quick Service Booking</h3>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bikeModel" class="form-label">Bike Model *</label>
+                            <input type="text" class="form-control" id="bikeModel" name="bikeModel"
+                                placeholder="e.g., Hero, Bajaj, TVS, Honda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service" class="form-label">Inquiry Type *</label>
+                            <select class="form-control" id="service" name="service" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="Spare Parts Inquiry">Spare Parts Inquiry</option>
+                                <option value="Engine Parts">Engine Parts</option>
+                                <option value="Body Parts">Body Parts</option>
+                                <option value="Service Components">Service Components</option>
+                                <option value="Bulk Order">Bulk Order</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Additional Details</label>
+                            <textarea class="form-control" id="message" name="message" rows="4"
+                                placeholder="Describe your requirement or spare part details"></textarea>
+                        </div>
+                        <button type="submit" class="btn-book">Send via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="section" style="background: var(--gradient-primary);">
+            <div class="container text-center">
+                <h2 style="color: var(--white); font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">Looking for
+                    Genuine Bike Spare Parts?</h2>
+                <p style="color: rgba(255,255,255,0.95); font-size: 1.2rem; margin-bottom: 2.5rem;">Get in touch with
+                    MKS
+                    Automobile today.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn-primary-custom">
-                        <i class="fas fa-cogs"></i> Explore Products
+                    <a href="tel:+918962489237" class="btn-secondary-custom"
+                        style="background: var(--white); color: var(--primary-orange); border-color: var(--white);">
+                        <i class="fas fa-file-invoice"></i> Get a Quote
                     </a>
-                    <a href="#contact" class="btn-secondary-custom">
-                        <i class="fas fa-envelope"></i> Contact Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="section" style="background: var(--white);">
-        <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="row align-items-center g-4">
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop"
-                        alt="MKS Automobile Store" class="img-fluid"
-                        style="border-radius: 12px; box-shadow: var(--shadow-lg);">
-                </div>
-                <div class="col-lg-6">
-                    <p style="font-size: 1.25rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 1rem;">
-                        <strong>MKS Automobile</strong> is a growing name in the two-wheeler spare parts market. We have
-                        been actively engaged in spare parts selling since <strong>2021</strong>, with a strong focus on
-                        B2C customers.
-                    </p>
-                    <p style="font-size: 1.15rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1rem;">
-                        Our aim is simple — to provide genuine, long-lasting and value-for-money spare parts that keep
-                        your motorcycle running smoothly.
-                    </p>
-                    <p style="font-size: 1.15rem; color: var(--text-light); line-height: 1.8;">
-                        With hands-on market experience and deep product knowledge, we understand what riders actually
-                        need.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Offer Section -->
-    <section id="services" class="section services-bg">
-        <div class="container" style="position: relative; z-index: 1;">
-            <h2 class="section-title">What We Offer</h2>
-            <p style="text-align: center; font-size: 1.05rem; color: var(--text-light); margin-bottom: 1.5rem;">We deal
-                in a wide range of Two-Wheeler Spare Parts, including:</p>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Engine & Mechanical Spare Parts</h3>
-                        <p>High-quality engine components and mechanical parts for all two-wheeler brands.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-motorcycle"></i>
-                        </div>
-                        <h3>Body Parts & Accessories</h3>
-                        <p>Premium body panels, fairings, and stylish accessories to enhance your ride.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-wrench"></i>
-                        </div>
-                        <h3>Service & Maintenance Components</h3>
-                        <p>Essential maintenance items like filters, brake pads, chains, and more.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>Fast Moving Daily-Use Spares</h3>
-                        <p>Quick availability of commonly needed spare parts for everyday riders.</p>
-                    </div>
-                </div>
-            </div>
-            <p
-                style="text-align: center; font-size: 1rem; color: var(--text-dark); margin-top: 2.5rem; font-weight: 500;">
-                All our products are carefully selected to ensure <strong>perfect fit</strong>,
-                <strong>durability</strong>, and <strong>performance</strong>.
-            </p>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="section why-choose-bg">
-        <div class="container">
-            <h2 class="section-title">Why Choose MKS Automobile</h2>
-            <div class="row g-4 mt-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <h3>Established Since 2021</h3>
-                        <p>Trusted and reliable spare parts provider with years of market experience.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Strong B2C Experience</h3>
-                        <p>Deep understanding of individual customer needs and preferences.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h3>Quality-Checked Parts</h3>
-                        <p>Every product is carefully inspected to ensure top-notch quality.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-tags"></i>
-                        </div>
-                        <h3>Affordable Pricing</h3>
-                        <p>Competitive rates without compromising on product quality.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3>Customer Focused</h3>
-                        <p>Your satisfaction is our priority. We go the extra mile for you.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <h3>Fast Availability</h3>
-                        <p>Quick access to common bike parts for everyday riders.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission & Vision Section -->
-    <section class="section" style="background: var(--primary-dark);">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <div
-                        style="background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 12px; border-left: 5px solid var(--primary-orange); height: 100%;">
-                        <h3 style="color: var(--gold-accent); font-size: 1.8rem; margin-bottom: 1.5rem;"><i
-                                class="fas fa-bullseye"></i> Our Mission</h3>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8;">
-                            To provide reliable and high-quality two-wheeler spare parts that ensure safety,
-                            performance, and peace of mind for every rider.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div
-                        style="background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 12px; border-left: 5px solid var(--gold-accent); height: 100%;">
-                        <h3 style="color: var(--gold-accent); font-size: 1.8rem; margin-bottom: 1.5rem;"><i
-                                class="fas fa-eye"></i> Our Vision</h3>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8;">
-                            To become a recognized and trusted spare parts brand in the local and regional market, known
-                            for quality, honesty, and service excellence.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Who We Serve Section -->
-    <section class="section" style="background: var(--white);">
-        <div class="container">
-            <h2 class="section-title">Who We Serve</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 3rem;">
-                We believe in building long-term relationships based on trust and product quality.
-            </p>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div class="service-card fade-in" style="text-align: center;">
-                        <div class="service-icon">
-                            <i class="fas fa-bicycle"></i>
-                        </div>
-                        <h3>Individual Bike Owners</h3>
-                        <p>Quality spare parts for your personal two-wheeler needs.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card fade-in" style="text-align: center;">
-                        <div class="service-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Local Mechanics & Workshops</h3>
-                        <p>Reliable parts supply for your repair and service business.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card fade-in" style="text-align: center;">
-                        <div class="service-icon">
-                            <i class="fas fa-motorcycle"></i>
-                        </div>
-                        <h3>Daily Commuters & Riders</h3>
-                        <p>Fast-moving spares for everyday riding requirements.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="section reviews-bg">
-        <div class="container">
-            <h2 class="section-title">Customer Reviews</h2>
-            <div class="row g-4 mt-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="review-card fade-in">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Excellent quality spare parts! MKS Automobile always has genuine
-                            products at reasonable prices. Highly recommended for all bike owners!"</p>
-                        <div class="reviewer-name">Rajesh Kumar</div>
-                        <div class="reviewer-title">Bike Owner</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="review-card fade-in">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Best spare parts shop in the area. The staff is very helpful and
-                            knowledgeable. I trust MKS completely with my bike maintenance needs."</p>
-                        <div class="reviewer-name">Priya Singh</div>
-                        <div class="reviewer-title">Regular Customer</div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="review-card fade-in">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Great service and genuine parts. They have everything I need for my
-                            workshop. Quick availability and competitive prices!"</p>
-                        <div class="reviewer-name">Amit Patel</div>
-                        <div class="reviewer-title">Local Mechanic</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery-bg">
-        <div class="container">
-            <h2 class="section-title">Our Products Gallery</h2>
-            <div class="gallery-grid">
-                <!-- Image 1: Motorcycle -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/2393816/pexels-photo-2393816.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Motorcycle">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-motorcycle"></i></span>
-                    </div>
-                </div>
-                <!-- Image 2: Engine Parts -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Engine Parts">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-cogs"></i></span>
-                    </div>
-                </div>
-                <!-- Image 3: Bike Wheel -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/3806249/pexels-photo-3806249.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Bike Wheel">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-circle"></i></span>
-                    </div>
-                </div>
-                <!-- Image 4: Sport Bike -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/2611686/pexels-photo-2611686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Sport Bike">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-tachometer-alt"></i></span>
-                    </div>
-                </div>
-                <!-- Image 5: Classic Bike -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Classic Bike">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-star"></i></span>
-                    </div>
-                </div>
-                <!-- Image 6: Bike Details -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Bike Details">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-wrench"></i></span>
-                    </div>
-                </div>
-                <!-- Image 7: Racing Bike -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Racing Bike">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-flag-checkered"></i></span>
-                    </div>
-                </div>
-                <!-- Image 8: Premium Bike -->
-                <div class="gallery-item">
-                    <img src="https://images.pexels.com/photos/1715193/pexels-photo-1715193.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop"
-                        alt="Premium Bike">
-                    <div class="gallery-overlay">
-                        <span class="gallery-icon"><i class="fas fa-gem"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Book Service Section -->
-    <section id="booking" class="section booking-bg">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--white);">Book Your Service</h2>
-            <div class="form-container">
-                <h3>Quick Service Booking</h3>
-                <form id="bookingForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Full Name *</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone Number *</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bikeModel" class="form-label">Bike Model *</label>
-                        <input type="text" class="form-control" id="bikeModel" name="bikeModel"
-                            placeholder="e.g., Hero, Bajaj, TVS, Honda" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service" class="form-label">Inquiry Type *</label>
-                        <select class="form-control" id="service" name="service" required>
-                            <option value="">Select inquiry type</option>
-                            <option value="Spare Parts Inquiry">Spare Parts Inquiry</option>
-                            <option value="Engine Parts">Engine Parts</option>
-                            <option value="Body Parts">Body Parts</option>
-                            <option value="Service Components">Service Components</option>
-                            <option value="Bulk Order">Bulk Order</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Additional Details</label>
-                        <textarea class="form-control" id="message" name="message" rows="4"
-                            placeholder="Describe your requirement or spare part details"></textarea>
-                    </div>
-                    <button type="submit" class="btn-book">Send via WhatsApp</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="section" style="background: var(--gradient-primary);">
-        <div class="container text-center">
-            <h2 style="color: var(--white); font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">Looking for
-                Genuine Bike Spare Parts?</h2>
-            <p style="color: rgba(255,255,255,0.95); font-size: 1.2rem; margin-bottom: 2.5rem;">Get in touch with MKS
-                Automobile today.</p>
-            <div class="hero-buttons">
-                <a href="tel:+918962489237" class="btn-secondary-custom"
-                    style="background: var(--white); color: var(--primary-orange); border-color: var(--white);">
-                    <i class="fas fa-file-invoice"></i> Get a Quote
-                </a>
-                <a href="#contact" class="btn-secondary-custom"
-                    style="border-color: var(--white); color: var(--white);">
-                    <i class="fas fa-store"></i> Visit Our Store
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-bg">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="row g-4 mt-4">
-                <div class="col-md-6 col-lg-3">
-                    <a href="https://www.google.com/maps?q=Tajpur%20Bihari%20More%20Near%20Janta%20Bazar%20Saran%20Bihar"
-                        target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Location</h3>
-                        <p>Tajpur Bihari More<br>Near Janta Bazar<br>Saran, Bihar</p>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a href="tel:+918962489237" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3>Call Us</h3>
-                        <p>+91-8962489237</p>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a href="mailto:mksautomobile@outlook.com" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email</h3>
-                        <p>mksautomobile@outlook.com</p>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a href="https://wa.me/918962489237?text=Hello%20MKS%20Automobile" target="_blank"
-                        class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>Chat with us</p>
+                    <a href="#contact" class="btn-secondary-custom"
+                        style="border-color: var(--white); color: var(--white);">
+                        <i class="fas fa-store"></i> Visit Our Store
                     </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Map Section -->
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.8834858859767!2d84.77647!3d26.3319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399ab0e8c1c1c1c1%3A0x1c1c1c1c1c1c1c1c!2sTajpur%2C%20Bihari%20More%2C%20Saran%2C%20Bihar!5e0!3m2!1sen!2sin!4v1234567890"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-bg">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6 col-lg-3">
+                        <a href="https://www.google.com/maps?q=Tajpur%20Bihari%20More%20Near%20Janta%20Bazar%20Saran%20Bihar"
+                            target="_blank" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Location</h3>
+                            <p>Tajpur Bihari More<br>Near Janta Bazar<br>Saran, Bihar</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="tel:+918962489237" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Call Us</h3>
+                            <p>+91-8962489237</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="mailto:mksautomobile@outlook.com" class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <p>mksautomobile@outlook.com</p>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="https://wa.me/918962489237?text=Hello%20MKS%20Automobile" target="_blank"
+                            class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h3>WhatsApp</h3>
+                            <p>Chat with us</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map Section -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.8834858859767!2d84.77647!3d26.3319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399ab0e8c1c1c1c1%3A0x1c1c1c1c1c1c1c1c!2sTajpur%2C%20Bihari%20More%2C%20Saran%2C%20Bihar!5e0!3m2!1sen!2sin!4v1234567890"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h5>MKS AUTOMOBILE</h5>
-                <p>Moto Kinetic Solution Automobile</p>
-                <p>Trusted Two-Wheeler Spare Parts Since 2021</p>
-                <p>Tajpur Bihari More, Near Janta Bazar • Saran, Bihar</p>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <h5>MKS AUTOMOBILE</h5>
+                    <p>Moto Kinetic Solution Automobile</p>
+                    <p>Trusted Two-Wheeler Spare Parts Since 2021</p>
+                    <p>Tajpur Bihari More, Near Janta Bazar • Saran, Bihar</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Products</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#booking">Book Service</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://wa.me/918962489237" target="_blank">WhatsApp</a>
+                </div>
+                <div class="footer-content" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #444;">
+                    <p>&copy; 2026 MKS AUTOMOBILE. All rights reserved.</p>
+                    <p style="font-size: 0.9rem; color: #aaa;">Quality Spare Parts for Two-Wheeler Excellence</p>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Products</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#booking">Book Service</a>
-                <a href="#contact">Contact</a>
-                <a href="https://wa.me/918962489237" target="_blank">WhatsApp</a>
-            </div>
-            <div class="footer-content" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #444;">
-                <p>&copy; 2026 MKS AUTOMOBILE. All rights reserved.</p>
-                <p style="font-size: 0.9rem; color: #aaa;">Quality Spare Parts for Two-Wheeler Excellence</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918962489237?text=Hello%20MKS%20Automobile%2C%20I%20need%20spare%20parts" target="_blank"
-        class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/918962489237?text=Hello%20MKS%20Automobile%2C%20I%20need%20spare%20parts" target="_blank"
+            class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JavaScript -->
-    <script>
-        // Auto-close mobile menu when clicking nav links
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(navLink => {
-            navLink.addEventListener('click', function () {
-                const navbarToggler = document.querySelector('.navbar-toggler');
-                const navbarCollapse = document.querySelector('.navbar-collapse');
+        <!-- Custom JavaScript -->
+        <script>
+            // Auto-close mobile menu when clicking nav links
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(navLink => {
+                navLink.addEventListener('click', function () {
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
 
-                if (navbarCollapse.classList.contains('show')) {
-                    navbarToggler.click();
-                }
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
                     }
-                }
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .review-card, .contact-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form Submission - WhatsApp Redirect
-        document.getElementById('bookingForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const bikeModel = document.getElementById('bikeModel').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-
-            // Create WhatsApp message
-            const whatsappMessage = encodeURIComponent(
-                `Hello MKS Automobile,\n\n` +
-                `I would like to inquire about spare parts.\n\n` +
-                `Name: ${name}\n` +
-                `Phone: ${phone}\n` +
-                `Bike Model: ${bikeModel}\n` +
-                `Inquiry Type: ${service}\n` +
-                `Details: ${message || 'None'}\n\n` +
-                `Please provide availability and pricing.`
-            );
-
-            const whatsappURL = `https://wa.me/918962489237?text=${whatsappMessage}`;
-            window.open(whatsappURL, '_blank');
-
-            // Show success message and reset form
-            alert('Redirecting to WhatsApp. Please complete your inquiry there.');
-            this.reset();
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
-            } else {
-                navbar.style.boxShadow = 'var(--shadow-md)';
-            }
-        });
-
-        // Active navigation link highlight
-        window.addEventListener('scroll', function () {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+                });
             });
 
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                    link.style.color = 'var(--gold-accent)';
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Fade in animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.service-card, .review-card, .contact-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Form Submission - WhatsApp Redirect
+            document.getElementById('bookingForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const bikeModel = document.getElementById('bikeModel').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+
+                // Create WhatsApp message
+                const whatsappMessage = encodeURIComponent(
+                    `Hello MKS Automobile,\n\n` +
+                    `I would like to inquire about spare parts.\n\n` +
+                    `Name: ${name}\n` +
+                    `Phone: ${phone}\n` +
+                    `Bike Model: ${bikeModel}\n` +
+                    `Inquiry Type: ${service}\n` +
+                    `Details: ${message || 'None'}\n\n` +
+                    `Please provide availability and pricing.`
+                );
+
+                const whatsappURL = `https://wa.me/918962489237?text=${whatsappMessage}`;
+                window.open(whatsappURL, '_blank');
+
+                // Show success message and reset form
+                alert('Redirecting to WhatsApp. Please complete your inquiry there.');
+                this.reset();
+            });
+
+            // Add scroll effect to navbar
+            window.addEventListener('scroll', function () {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
                 } else {
-                    link.style.color = 'rgba(255, 255, 255, 0.85)';
+                    navbar.style.boxShadow = 'var(--shadow-md)';
                 }
             });
-        });
-    </script>
-</body>
+
+            // Active navigation link highlight
+            window.addEventListener('scroll', function () {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').slice(1) === current) {
+                        link.classList.add('active');
+                        link.style.color = 'var(--gold-accent)';
+                    } else {
+                        link.style.color = 'rgba(255, 255, 255, 0.85)';
+                    }
+                });
+            });
+        </script>
+    </body>
 
 </html>
